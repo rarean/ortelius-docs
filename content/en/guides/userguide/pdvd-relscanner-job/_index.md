@@ -4,7 +4,7 @@ linkTitle: "Deployment Tracking Using GitHub"
 weight: 5
 ---
 
-The Release Scanner (`pdvd-relscanner-job`) is a Kubernetes CronJob that automatically discovers new software releases by monitoring GitHub Actions workflow runs across all repositories connected to your GitHub App installation. It enriches each release with SBOM data, Git provenance, and OpenSSF Scorecard results, then syncs the release records to the Ortelius/DeployHub backend (`pdvd-backend`) via the `/api/v1/releases` API.
+The Release Scanner (`relscanner-job`) is a Kubernetes CronJob that automatically discovers new software releases by monitoring GitHub Actions workflow runs across all repositories connected to your GitHub App installation. It enriches each release with SBOM data, Git provenance, and OpenSSF Scorecard results, then syncs the release records to the Ortelius/DeployHub backend (`ortelius`) via the `/api/v1/releases` API.
 
 This component runs alongside the Ortelius backend and complements the [Deployment Tracking for GKE](./deployment-tracking-gke/) capability by capturing releases at their source — the CI/CD pipeline — rather than at runtime cluster observation.
 
@@ -39,7 +39,7 @@ Once synced, these records are available in the Ortelius UI and API for dependen
 
 ## Connect Your GitHub Repositories
 
-Before the scanner can discover your releases, connect your GitHub account via **Profile → Connect GitHub** in the Ortelius UI. This installs the PDVD GitHub App on your account or organization and stores your installation ID in ArangoDB, which the scanner uses to generate a short-lived token and access your repositories on every run. Full instructions are in [Connect Your GitHub Repositories](https://docs.ortelius.io/guides/userguide/) in the Getting Started guide.
+Before the scanner can discover your releases, connect your GitHub account via **Profile → Connect GitHub** in the Ortelius UI. This installs the Ortelius GitHub App on your account or organization and stores your installation ID in ArangoDB, which the scanner uses to generate a short-lived token and access your repositories on every run. Full instructions are in [Connect Your GitHub Repositories](https://docs.ortelius.io/guides/userguide/) in the Getting Started guide.
 
 ## Schedule
 

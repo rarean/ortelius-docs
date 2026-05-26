@@ -4,7 +4,7 @@ linkTitle: "Vulnerability Database Sync"
 weight: 7
 ---
 
-The OSV Loader (`pdvd-osvdev-job`) is a Kubernetes CronJob that continuously synchronizes vulnerability intelligence from [osv.dev](https://osv.dev) into the Ortelius evidence store. It is the foundation of Ortelius' post-deployment security model — without it, no CVE matching occurs against your deployed components.
+The OSV Loader (`osvdev-job`) is a Kubernetes CronJob that continuously synchronizes vulnerability intelligence from [osv.dev](https://osv.dev) into the Ortelius evidence store. It is the foundation of Ortelius' post-deployment security model — without it, no CVE matching occurs against your deployed components.
 
 ## What It Does
 
